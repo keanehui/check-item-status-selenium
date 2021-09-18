@@ -30,11 +30,11 @@ def send_email(to_addr:str=EMAIL_ADDRESS):
     print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), end="\t")
     try:
         server.send_message(email_obj)
+        server.quit()
         print("EMAIL SENT TO " + to_addr)
     except:
         print("ERROR: Failed to send email.")
-    server.quit()
-
+    
 if test_email:
     send_email()
     exit()
@@ -69,4 +69,4 @@ while (datetime.datetime.now() < checking_end_time):
         send_email("kawonghui@gmail.com")
 
     driver.quit()
-    time.sleep(CHECK_FREQUENCY_SECS) # check every 10 secs
+    time.sleep(CHECK_FREQUENCY_SECS)
